@@ -1,0 +1,23 @@
+{
+  "name": "nft-browser-game",
+  "version": "1.0.0",
+  "description": "A _buildspace.so project for an NFT browser game.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonjgarcia24/nft-browser-game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jasonjgarcia24/nft-browser-game/issues"
+  },
+  "homepage": "https://github.com/jasonjgarcia24/nft-browser-game#readme",
+  "devDependencies": {
+    "hardhat": "^0.0.7"
+  }
+}
