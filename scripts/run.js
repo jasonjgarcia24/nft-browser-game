@@ -20,14 +20,22 @@ const main = async () => {
     console.log("Contract deployed to:", gameContract.address);
 
     let txn;
+    txn = await gameContract.mintCharacterNFT(0);
+    await txn.wait();
+    console.log("Minted NFT #1");
 
-    // We have 6 characters.
-    // An NFT w/ the character at index 2 of our array.
-    txn = await gameContract.mintCharacterNFT(3);
+    txn = await gameContract.mintCharacterNFT(1);
+    await txn.wait();
+    console.log("Minted NFT #2");
 
-    // Get the value of the NFT's URI.
-    let returnedTokenUri = await gameContract.tokenURI(1);
-    console.log("Token URI:", returnedTokenUri);
+    txn = await gameContract.mintCharacterNFT(2);
+    await txn.wait();
+    console.log("Minted NFT #3");
+
+    console.log("Done deploying and minting!");
+
+    // let returnedTokenUri = await gameContract.tokenURI(1);
+    // console.log("Token URI:", returnedTokenUri);
 };
 
 const runMain = async () => {
