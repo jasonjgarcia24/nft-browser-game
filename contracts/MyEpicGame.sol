@@ -31,6 +31,16 @@ contract MyEpicGame is ERC721 {
     // We create a mapping from the nft's tokenId => that NFTs attributes.
     mapping(uint256 => CharacterAttributes) public nftHolderAttributes;
 
+    struct BigBoss {
+        string name;
+        string imageURI;
+        uint hp;
+        uint maxHp;
+        uint attackDamage;
+    }
+
+    BigBoss public bigBoss;
+
     // A mapping from an address => the NFTs tokenId. Gives us an easy way
     // to store the owner of the NFT and reference it later.
     mapping(address => uint256) public nftHolders;
@@ -45,7 +55,7 @@ contract MyEpicGame is ERC721 {
         // and ETH. I just call mine YourMurica and YMCA. Remember, an NFT
         // is just a token.
     )
-        ERC721("YourMurica", "YMCA")
+        ERC721("_YMCA", "YMCA")
     {
         for (uint i = 0; i < characterNames.length; i += 1) {
             defaultCharacters.push(
@@ -109,16 +119,14 @@ contract MyEpicGame is ERC721 {
             bytes(
                 string(
                     abi.encodePacked(
-                        '{"name": "',
-                        charAttributes.name,
-                        ' -- NFT #: ',
-                        Strings.toString(_tokenId),
-                        '", "description": "This is an NFT that lets people play in the game Metaverse Murica!", "image": "',
-                        charAttributes.imageURI,
-                        '", "attributes": [ { "trait_type": "Health Points", "value": ', strHp,
-                        ', "max_value":', strMaxHp,
-                        '}, { "trait_type": "Attack Damage", "value": ', strAttackDamage,
-                        '} ]}'
+                    '{"name": "',
+                    charAttributes.name,
+                    ' -- NFT #: ',
+                    Strings.toString(_tokenId),
+                    '", "description": "This is an NFT that lets people play in the game Metaverse Slayer!", "image": "',
+                    charAttributes.imageURI,
+                    '", "attributes": [ { "trait_type": "Health Points", "value": ',strHp,', "max_value":',strMaxHp,'}, { "trait_type": "Attack Damage", "value": ',
+                    strAttackDamage,'} ]}'
                     )
                 )
             )
